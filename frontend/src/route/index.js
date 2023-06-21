@@ -4,13 +4,15 @@ import Home from '../components/Home.vue'
 import Register from '../components/Register.vue'
 import Profile from '../components/Profile.vue'
 import ForgotPassword from '../components/ForgotPassword.vue'
+import ResetPassword from '../components/ResetPassword.vue'
 
 const routes = [
   { path: '/', name: 'Home', component: Home },
   { path: '/login', name: 'Login', component: Login },
   { path: '/register', name: 'Register', component: Register },
   { path: '/profile', name: 'Profile', component: Profile },
-  { path: '/forgot-password', name: 'ForgotPassword', component: ForgotPassword }
+  { path: '/forgot-password', name: 'ForgotPassword', component: ForgotPassword },
+  { path: '/password-reset/:token', name: 'ResetPassword', component: ResetPassword }
 ]
 
 const router = createRouter({

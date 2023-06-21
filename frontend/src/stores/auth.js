@@ -67,6 +67,23 @@ export const useAuthStore = defineStore('auth', {
           this.authErrors = error.response.data.errors
         }
       }
+    },
+    async handleResetPassword(data) {
+      this.authErrors = []
+      try {
+        await this.getToken()
+        await axios.post('/reset-password', {
+          token: data.token,
+          email: data.email,
+          password: data.password,
+          password_confirmation: data.password_confirmation
+        })
+        this.route.push('/')
+      } catch (error) {
+        if (error.response.status === 422) {
+          this.authErrors = error.response.data.errors
+        }
+      }
     }
   }
 })
