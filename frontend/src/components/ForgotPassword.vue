@@ -3,9 +3,13 @@ import { ref } from 'vue'
 import { useAuthStore } from '../stores/auth'
 const authStore = useAuthStore()
 const email = ref('')
+console.log(authStore.status)
 </script>
 <template lang="">
   <h2 class="text-center text-3xl font-bold pb-5">Forgot Password</h2>
+  <div v-if="authStore.status">
+    <p class="font-bold text-green-800 text-lg text-center mb-5">{{ authStore.status }}</p>
+  </div>
   <div class="w-1/2 mx-auto">
     <form @submit.prevent="authStore.handleForgotPassword(email)">
       <div class="mb-6">
